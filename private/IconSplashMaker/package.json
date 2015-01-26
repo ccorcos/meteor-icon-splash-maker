@@ -1,0 +1,12 @@
+{
+  "name": "IconSplashMaker",
+  "version": "1.0.0",
+  "description": "Generate icons and splash screens with HTML and CSS.",
+  "author": "Chet Corcos <ccorcos@gmail.com> (http://www.chetcorcos.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "latest",
+    "sync-exec": "latest",
+    "colors": "latest"
+  }
+}
