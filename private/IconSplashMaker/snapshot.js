@@ -8,6 +8,8 @@ outputFile = phantom.args[3]
 var page = require('webpage').create();
 page.open('http://localhost:3000/' + inputFile, function (status) {
     page.viewportSize = { width:width, height:height };
-    page.render(outputFile)
-    slimer.exit()
+    setTimeout(function() {
+      page.render(outputFile)
+      slimer.exit()
+    }, 3000)
 });

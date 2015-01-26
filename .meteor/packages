@@ -10,3 +10,4 @@ insecure
 coffeescript
 iron:router
 lauricio:less-autoprefixer
+meteorhacks:fast-render

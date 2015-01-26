@@ -30,7 +30,7 @@ splashSizes = [
 
 program = require 'commander'
 colors = require 'colors'
-exec = require('sync-exec')
+exec = require 'sync-exec'
 
 snapshot = (route, width, height, output) ->
   obj = exec "slimerjs snapshot.js #{route} #{width} #{height} #{output}"

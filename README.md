@@ -1,38 +1,45 @@
-# Icon and Splash Screen Maker
+# Meteor Icon and Splash Screen Maker
 
 Make icons and splash screen using SVG, HTML, CSS, and render them in all the sizes you need.
 
+It is such a hassle to make icons and splash screens in all the appropriate sizes for ever mobile deivce. This project is an attempt to alleviate some of that pain for meteor developers.
+
+I've started with the mobile web app icon and splash screen sizes for iOS 8 [given in this gist](https://gist.github.com/hpoydar/338ac838516b4951aadf). I have not verified all of these however -- it is a huge pain in the ass.
+
+I would like this project to support all platforms, not just iOS. I just don't have an Android to test with.
+
+## How it works
+
+In `private/IconSplashMaker` there is a script that looks at your `icon` and `splash` routes, renders them in a Firefox browser window using SlimerJS, and takes the appropriate screenshots. I am using SlimerJS instead of PhantomJS because PhantomJS does not yet support CSS viewport height and width (`vw` and `vh`) which are crucial for generating icons and splash screen.
+
+You'll also notice quite a delay between each snapshot. This is to allow the browser time to load images.
+
 ## Getting Started
 
-You need coffeescript:
+You will need the coffeescript commandline interpreter.
 
     npm install -g coffee-script
 
-Install all the node dependancies:
+The change directory to the IconSplashMaker directory and install the NPM dependancies.
 
+    cd private/IconSplashMaker
     npm install
 
-You'll also need slimerjs which also requires Firefox:
+You'll also need SlimerJS which also requires Firefox. If you don't already have Firefox installed, you can install it using `brew cask`.
 
     brew install slimerjs --without-xulrunner 
-    brew cask search firefox
+    brew cask install firefox
 
-You'll also need an environment variable for slimerjs to find firefox, so put this in your .bashrc
+You'll also need an environment variable for SlimerJS to find Firefox. You may want to put this in your `.bashrc`.
 
     export SLIMERJSLAUNCHER=~/Applications/Firefox.app/Contents/MacOS/firefox
 
-Slimerjs also only accepts URLs so you have to start an http server:
+Make sure your Meteor server is up and running, and generate all your icons and splash screens:
 
-    python -m SimpleHTTPServer
+    coffee generateIconSplash.coffee
 
-Then you can create your icons and your splash screens:
+## To do
 
-    ./generate -i icon.html -s splash.html
-
-## Tips
-
-- Use viewport width for sizing things so that they scale well for each icon size.
-
-
-
-
+- mobile-config.js sizes
+- android sizes
+- verify everything is correct

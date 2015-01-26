@@ -3,10 +3,18 @@ html, body, .splash, .icon {
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.splash, .icon {
+  display: table;
 }
 
 .splash {
-  display: table;
   div {
     display: table-cell;
     vertical-align: middle;
@@ -21,14 +29,13 @@ html, body, .splash, .icon {
 }
 
 .icon {
-  display: table;
   div {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
     img {
-      height: 102vh;
-      width: 102vh;
+      height:100vh;
+      width:100wh;
     }
   }
 }
