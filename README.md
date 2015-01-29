@@ -32,7 +32,22 @@ You'll also need SlimerJS which also requires Firefox. If you don't already have
 
 You'll also need an environment variable for SlimerJS to find Firefox. You may want to put this in your `.bashrc`.
 
+If you are using cask to install Firefox:
+
     export SLIMERJSLAUNCHER=~/Applications/Firefox.app/Contents/MacOS/firefox
+    
+Or if you have a standard Firefox installation in your /Applications folder:
+
+    export SLIMERJSLAUNCHER=/Applications/Firefox.app/Contents/MacOS/firefox
+    
+If your version of Firefox is greater then version 34 you will need to update the following ini file:
+
+    /usr/local/Cellar/slimerjs/0.9.4/libexec/application.ini
+    
+Change the following:
+
+    FROM: MaxVersion=34.*
+    TO: MaxVersion=36.*
 
 Make sure your Meteor server is up and running, and generate all your icons and splash screens:
 
